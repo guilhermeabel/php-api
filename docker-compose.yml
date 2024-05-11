@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   app:
@@ -6,10 +6,13 @@ services:
     volumes:
       - ./:/var/www/html
     working_dir: /var/www/html
-    depends_on:
-      - mysql
     extra_hosts:
       host.docker.internal: host-gateway
+    depends_on:
+      mysql:
+          condition: service_healthy
+      redis:
+          condition: service_healthy
   nginx:
     container_name: webserver
     image: nginx:alpine
@@ -26,10 +29,22 @@ services:
       MYSQL_DATABASE: ${MYSQL_DB_NAME:-projeto_db}
       MYSQL_USER: ${MYSQL_DB_USER:-user_db}
       MYSQL_PASSWORD: ${MYSQL_DB_PASSWORD:-password}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password}
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
     ports:
       - "3307:3306"
     volumes:
       - ./db:/docker-entrypoint-initdb.d
       - ./my.cnf:/etc/mysql/my.cnf
-
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  redis:
+    container_name: async-tasks-redis
+    image: redis:alpine
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
