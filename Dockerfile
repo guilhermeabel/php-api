@@ -40,9 +40,11 @@ RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 RUN docker-php-ext-install mysqli pdo pdo_mysql zip opcache pcntl soap bcmath
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
+RUN touch /tmp/xdebug.log && chmod 777 /tmp/xdebug.log
+
 COPY --from=vendor app/vendor/ ./vendor/
 COPY . .
-COPY docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/
+COPY php.ini /usr/local/etc/php/conf.d/
 
 RUN export XDEBUG_SESSION=1
 
