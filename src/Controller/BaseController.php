@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controllers;
+namespace App\Controller;
 
 abstract class BaseController {
     protected function view(string $page, array $data = []) {

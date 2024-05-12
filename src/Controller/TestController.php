@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Controllers;
+namespace App\Controller;
 
 class TestController extends BaseController {
     public function index(): void {
         $a = 1;
-        phpinfo();
+        echo $a;
     }
 }
