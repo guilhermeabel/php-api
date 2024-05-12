@@ -41,6 +41,11 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql zip opcache pcntl soap bcmath
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 RUN touch /tmp/xdebug.log && chmod 777 /tmp/xdebug.log
+RUN mkdir /var/log/nginx && \
+	touch /var/log/nginx/error.log && \
+	chmod 777 /var/log/nginx/error.log && \
+	touch /var/log/nginx/access.log && \
+	chmod 777 /var/log/nginx/access.log
 
 COPY --from=vendor app/vendor/ ./vendor/
 COPY . .
