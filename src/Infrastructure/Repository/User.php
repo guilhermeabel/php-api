@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Model;
+namespace Model;
 
-use App\Database\MySQLDatabase;
+use Infrastructure\Database\MySQL\MySQLDatabase;
 
 class User {
     private MySQLDatabase $database;

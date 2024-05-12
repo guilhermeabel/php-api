@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
+use Infrastructure\Database\MySQL\MySQLDatabase;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Database\MySQLDatabase;
 
 $hostname = getenv('MYSQL_DB_HOST');
 $database = getenv('MYSQL_DB_NAME');

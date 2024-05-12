@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Database;
+namespace Infrastructure\Database\MySQL;
+
+use Infrastructure\Database\DatabaseConnectionInterface;
 
 class MySQLDatabase implements DatabaseConnectionInterface {
     private \PDO $connection;
@@ -62,7 +64,7 @@ class MySQLDatabase implements DatabaseConnectionInterface {
         return $this->persistent;
     }
 
-    public function beginTransaction(): void {
+    public function begin(): void {
         $this->connection->beginTransaction();
     }
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Middleware;
+namespace Middleware;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -12,7 +12,7 @@ class LogRequestMiddleware {
         $requestBody = $request->getParsedBody();
         $responseBody = (string) $response->getBody();
 
-        file_put_contents(__DIR__ . '/../logs/app.requests.log', sprintf(
+        file_put_contents(__DIR__ . '/../../logs/app.requests.log', sprintf(
             "[%s] %s %s %s %s\n",
             date('Y-m-d H:i:s'),
             $request->getMethod(),
