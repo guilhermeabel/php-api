@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database;
 
-interface TransactionInterface {
+interface Transaction {
     public function begin(): void;
 
     public function commit(): void;

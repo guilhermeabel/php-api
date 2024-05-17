@@ -1,0 +1,87 @@
+[2024-05-12 18:31:07] GET / null Hello world!
+[2024-05-16 22:35:07] GET / null <!doctype html><html lang="en">    <head>        <meta charset="utf-8">        <meta name="viewport" content="width=device-width, initial-scale=1">        <title>Slim Application Error</title>        <style>            body{margin:0;padding:30px;font:12px/1.5 Helvetica,Arial,Verdana,sans-serif}            h1{margin:0;font-size:48px;font-weight:normal;line-height:48px}            strong{display:inline-block;width:65px}        </style>    </head>    <body>        <h1>Slim Application Error</h1>        <div><p>The application could not run because of the following error:</p><h2>Details</h2><div><strong>Type:</strong> Error</div><div><strong>Code:</strong> 0</div><div><strong>Message:</strong> Object of class Application\Common\Enums\UserEventsEnum could not be converted to string</div><div><strong>File:</strong> /var/www/html/public/index.php</div><div><strong>Line:</strong> 21</div><h2>Trace</h2><pre>#0 /var/www/html/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): {closure}(Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#1 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(358): Slim\Handlers\Strategies\RequestResponse-&gt;__invoke(Object(Closure), Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#2 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\Routing\Route-&gt;handle(Object(Slim\Psr7\Request))
+#3 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#4 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(315): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#5 /var/www/html/vendor/slim/slim/Slim/Routing/RouteRunner.php(68): Slim\Routing\Route-&gt;run(Object(Slim\Psr7\Request))
+#6 /var/www/html/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(45): Slim\Routing\RouteRunner-&gt;handle(Object(Slim\Psr7\Request))
+#7 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#8 /var/www/html/vendor/slim/slim/Slim/Middleware/BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#9 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#10 /var/www/html/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#11 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#12 /var/www/html/src/Infrastructure/Middleware/LogRequestMiddleware.php(11): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#13 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(269): Infrastructure\Middleware\LogRequestMiddleware-&gt;__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#14 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#15 /var/www/html/vendor/slim/slim/Slim/App.php(199): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#16 /var/www/html/vendor/slim/slim/Slim/App.php(183): Slim\App-&gt;handle(Object(Slim\Psr7\Request))
+#17 /var/www/html/public/index.php(26): Slim\App-&gt;run()
+#18 {main}</pre></div>        <a href="#" onclick="window.history.go(-1)">Go Back</a>    </body></html>
+[2024-05-16 22:35:08] GET /favicon.ico null <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<error>
+  <message><![CDATA[404 Not Found]]></message>
+  <exception>
+    <type>Slim\Exception\HttpNotFoundException</type>
+    <code>404</code>
+    <message><![CDATA[Not found.]]></message>
+    <file>/var/www/html/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php</file>
+    <line>76</line>
+  </exception>
+</error>
+[2024-05-16 22:37:15] GET / null user_created
+[2024-05-16 22:43:59] GET / null Hello, world!
+[2024-05-17 00:14:42] POST /account {"name":"john","email":"john@mail.com","password":""} <!doctype html><html lang="en">    <head>        <meta charset="utf-8">        <meta name="viewport" content="width=device-width, initial-scale=1">        <title>Slim Application Error</title>        <style>            body{margin:0;padding:30px;font:12px/1.5 Helvetica,Arial,Verdana,sans-serif}            h1{margin:0;font-size:48px;font-weight:normal;line-height:48px}            strong{display:inline-block;width:65px}        </style>    </head>    <body>        <h1>Slim Application Error</h1>        <div><p>The application could not run because of the following error:</p><h2>Details</h2><div><strong>Type:</strong> TypeError</div><div><strong>Code:</strong> 0</div><div><strong>Message:</strong> Slim\Handlers\Strategies\RequestResponse::__invoke(): Return value must be of type Psr\Http\Message\ResponseInterface, null returned</div><div><strong>File:</strong> /var/www/html/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php</div><div><strong>Line:</strong> 38</div><h2>Trace</h2><pre>#0 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(358): Slim\Handlers\Strategies\RequestResponse-&gt;__invoke(Object(Closure), Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#1 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\Routing\Route-&gt;handle(Object(Slim\Psr7\Request))
+#2 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#3 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(315): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#4 /var/www/html/vendor/slim/slim/Slim/Routing/RouteRunner.php(68): Slim\Routing\Route-&gt;run(Object(Slim\Psr7\Request))
+#5 /var/www/html/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(45): Slim\Routing\RouteRunner-&gt;handle(Object(Slim\Psr7\Request))
+#6 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#7 /var/www/html/vendor/slim/slim/Slim/Middleware/BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#8 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#9 /var/www/html/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#10 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#11 /var/www/html/src/Infrastructure/Middleware/LogRequestMiddleware.php(11): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#12 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(269): Infrastructure\Middleware\LogRequestMiddleware-&gt;__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#13 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#14 /var/www/html/vendor/slim/slim/Slim/App.php(199): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#15 /var/www/html/vendor/slim/slim/Slim/App.php(183): Slim\App-&gt;handle(Object(Slim\Psr7\Request))
+#16 /var/www/html/public/index.php(27): Slim\App-&gt;run()
+#17 {main}</pre></div>        <a href="#" onclick="window.history.go(-1)">Go Back</a>    </body></html>
+[2024-05-17 00:16:10] POST /account {"name":"john","email":"john@mail.com","password":""} <!doctype html><html lang="en">    <head>        <meta charset="utf-8">        <meta name="viewport" content="width=device-width, initial-scale=1">        <title>Slim Application Error</title>        <style>            body{margin:0;padding:30px;font:12px/1.5 Helvetica,Arial,Verdana,sans-serif}            h1{margin:0;font-size:48px;font-weight:normal;line-height:48px}            strong{display:inline-block;width:65px}        </style>    </head>    <body>        <h1>Slim Application Error</h1>        <div><p>The application could not run because of the following error:</p><h2>Details</h2><div><strong>Type:</strong> TypeError</div><div><strong>Code:</strong> 0</div><div><strong>Message:</strong> Slim\Handlers\Strategies\RequestResponse::__invoke(): Return value must be of type Psr\Http\Message\ResponseInterface, null returned</div><div><strong>File:</strong> /var/www/html/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php</div><div><strong>Line:</strong> 38</div><h2>Trace</h2><pre>#0 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(358): Slim\Handlers\Strategies\RequestResponse-&gt;__invoke(Object(Closure), Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#1 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\Routing\Route-&gt;handle(Object(Slim\Psr7\Request))
+#2 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#3 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(315): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#4 /var/www/html/vendor/slim/slim/Slim/Routing/RouteRunner.php(68): Slim\Routing\Route-&gt;run(Object(Slim\Psr7\Request))
+#5 /var/www/html/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(45): Slim\Routing\RouteRunner-&gt;handle(Object(Slim\Psr7\Request))
+#6 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#7 /var/www/html/vendor/slim/slim/Slim/Middleware/BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#8 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#9 /var/www/html/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#10 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#11 /var/www/html/src/Infrastructure/Middleware/LogRequestMiddleware.php(11): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#12 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(269): Infrastructure\Middleware\LogRequestMiddleware-&gt;__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#13 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#14 /var/www/html/vendor/slim/slim/Slim/App.php(199): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#15 /var/www/html/vendor/slim/slim/Slim/App.php(183): Slim\App-&gt;handle(Object(Slim\Psr7\Request))
+#16 /var/www/html/public/index.php(28): Slim\App-&gt;run()
+#17 {main}</pre></div>        <a href="#" onclick="window.history.go(-1)">Go Back</a>    </body></html>
+[2024-05-17 00:16:53] POST /account {"name":"john","email":"john@mail.com","password":""} <!doctype html><html lang="en">    <head>        <meta charset="utf-8">        <meta name="viewport" content="width=device-width, initial-scale=1">        <title>Slim Application Error</title>        <style>            body{margin:0;padding:30px;font:12px/1.5 Helvetica,Arial,Verdana,sans-serif}            h1{margin:0;font-size:48px;font-weight:normal;line-height:48px}            strong{display:inline-block;width:65px}        </style>    </head>    <body>        <h1>Slim Application Error</h1>        <div><p>The application could not run because of the following error:</p><h2>Details</h2><div><strong>Type:</strong> TypeError</div><div><strong>Code:</strong> 0</div><div><strong>Message:</strong> Slim\Handlers\Strategies\RequestResponse::__invoke(): Return value must be of type Psr\Http\Message\ResponseInterface, null returned</div><div><strong>File:</strong> /var/www/html/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php</div><div><strong>Line:</strong> 38</div><h2>Trace</h2><pre>#0 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(358): Slim\Handlers\Strategies\RequestResponse-&gt;__invoke(Object(Closure), Object(Slim\Psr7\Request), Object(Slim\Psr7\Response), Array)
+#1 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\Routing\Route-&gt;handle(Object(Slim\Psr7\Request))
+#2 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#3 /var/www/html/vendor/slim/slim/Slim/Routing/Route.php(315): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#4 /var/www/html/vendor/slim/slim/Slim/Routing/RouteRunner.php(68): Slim\Routing\Route-&gt;run(Object(Slim\Psr7\Request))
+#5 /var/www/html/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php(45): Slim\Routing\RouteRunner-&gt;handle(Object(Slim\Psr7\Request))
+#6 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\RoutingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Slim\Routing\RouteRunner))
+#7 /var/www/html/vendor/slim/slim/Slim/Middleware/BodyParsingMiddleware.php(64): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#8 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\BodyParsingMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#9 /var/www/html/vendor/slim/slim/Slim/Middleware/ErrorMiddleware.php(76): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#10 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(121): Slim\Middleware\ErrorMiddleware-&gt;process(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#11 /var/www/html/src/Infrastructure/Middleware/LogRequestMiddleware.php(11): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#12 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(269): Infrastructure\Middleware\LogRequestMiddleware-&gt;__invoke(Object(Slim\Psr7\Request), Object(Psr\Http\Server\RequestHandlerInterface@anonymous))
+#13 /var/www/html/vendor/slim/slim/Slim/MiddlewareDispatcher.php(65): Psr\Http\Server\RequestHandlerInterface@anonymous-&gt;handle(Object(Slim\Psr7\Request))
+#14 /var/www/html/vendor/slim/slim/Slim/App.php(199): Slim\MiddlewareDispatcher-&gt;handle(Object(Slim\Psr7\Request))
+#15 /var/www/html/vendor/slim/slim/Slim/App.php(183): Slim\App-&gt;handle(Object(Slim\Psr7\Request))
+#16 /var/www/html/public/index.php(28): Slim\App-&gt;run()
+#17 {main}</pre></div>        <a href="#" onclick="window.history.go(-1)">Go Back</a>    </body></html>

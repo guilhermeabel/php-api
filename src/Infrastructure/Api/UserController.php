@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Api;
+namespace Infrastructure\Api;
 
-use \Database\MySQLDatabase;
+use Infrastructure\Database\MySQL\MySQLDatabase;
 
 class UserController extends BaseController {
     private MySQLDatabase $database;
