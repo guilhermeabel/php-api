@@ -41,7 +41,7 @@ services:
       timeout: 5s
       retries: 5
   redis:
-    container_name: async-tasks-redis
+    container_name: redis-session
     image: redis:alpine
     healthcheck:
       test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
