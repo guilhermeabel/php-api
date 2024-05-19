@@ -9,7 +9,7 @@ use Application\Entities\UserEntity;
 use Application\Entities\UserEventsEntity;
 use Application\Repositories\UserEventsRepository;
 use Application\Repositories\UserRepository;
-use Infrastructure\Database\Transaction;
+use Infrastructure\Persistence\Database\Transaction;
 
 class CreateAccountUseCase {
     private UserRepository $userRepository;

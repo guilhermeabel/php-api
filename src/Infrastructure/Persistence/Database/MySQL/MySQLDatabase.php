@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Database\MySQL;
+namespace Infrastructure\Persistence\Database\MySQL;
 
-use Infrastructure\Database\DatabaseConnectionInterface;
+use Infrastructure\Persistence\Database\DatabaseConnectionInterface;
 
 class MySQLDatabase implements DatabaseConnectionInterface {
     private \PDO $connection;

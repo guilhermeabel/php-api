@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Repository;
+namespace Infrastructure\Persistence\Repository;
 
 use Application\Entities\UserEntity;
 use Application\Repositories\UserRepository;
-use Infrastructure\Database\MySQL\MySQLDatabase;
+use Infrastructure\Persistence\Database\MySQL\MySQLDatabase;
 
 class UserMySQLRepository implements UserRepository {
     public function save(UserEntity $user): void {

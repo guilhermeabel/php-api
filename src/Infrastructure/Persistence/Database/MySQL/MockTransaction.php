@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Database\MySQL;
+namespace Infrastructure\Persistence\Database\MySQL;
 
-use Infrastructure\Database\Transaction;
+use Infrastructure\Persistence\Database\Transaction;
 
 class MockTransaction implements Transaction {
     public function begin(): void {}

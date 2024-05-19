@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
-use Application\Entities\UserEntity;
-use Infrastructure\Database\MySQL\MySQLDatabase;
+use Infrastructure\Persistence\Database\MySQL\MySQLDatabase;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -11,8 +10,6 @@ $hostname = getenv('MYSQL_DB_HOST');
 $database = getenv('MYSQL_DB_NAME');
 $username = getenv('MYSQL_DB_USER');
 $password = getenv('MYSQL_DB_PASSWORD');
-
-new UserEntity(0, 'john', 'john@gmail.com', 'password');
 
 try {
     $databaseConnection = MySQLDatabase::getInstance();

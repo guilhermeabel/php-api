@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Model;
+namespace Infrastructure\Persistence\Repository;
 
-use Infrastructure\Database\MySQL\MySQLDatabase;
+use Infrastructure\Persistence\Database\MySQL\MySQLDatabase;
 
 class UserEvents {
     private MySQLDatabase $database;

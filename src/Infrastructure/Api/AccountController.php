@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Infrastructure\Api;
 
 use Application\UseCases\CreateAccountUseCase;
-use Infrastructure\Database\MySQL\MySQLDatabase;
-use Infrastructure\Repository\UserMySQLRepository;
+use Infrastructure\Persistence\Database\MySQL\MySQLDatabase;
+use Infrastructure\Persistence\Repository\UserMySQLRepository;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 

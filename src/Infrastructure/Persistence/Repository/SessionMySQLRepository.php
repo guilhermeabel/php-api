@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Repository;
+namespace Infrastructure\Persistence\Repository;
 
 use Application\Entities\SessionEntity;
 use Application\Repositories\SessionRepository;
-use Infrastructure\Database\MySQL\MySQLDatabase;
+use Infrastructure\Persistence\Database\MySQL\MySQLDatabase;
 
 class SessionMySQLRepository implements SessionRepository {
     public function save(SessionEntity $session): void {

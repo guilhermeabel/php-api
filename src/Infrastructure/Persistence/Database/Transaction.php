@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Database;
+namespace Infrastructure\Persistence\Database;
 
 interface Transaction {
     public function begin(): void;
