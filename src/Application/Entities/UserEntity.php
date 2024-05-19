@@ -9,8 +9,10 @@ class UserEntity {
     private string $name;
     private string $email;
     private string $password;
+    private ?string $created_at;
+    private ?string $updated_at;
 
-    public function __construct(?int $id, string $name, string $email, string $password) {
+    public function __construct(?int $id, string $name, string $email, string $password, ?string $created_at, ?string $updated_at) {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
@@ -18,7 +20,7 @@ class UserEntity {
     }
 
     public static function create(string $name, string $email, string $password): self {
-        return new self(null, $name, $email, $password);
+        return new self(null, $name, $email, $password, null, null);
     }
 
     public function getId(): ?int {
@@ -35,5 +37,13 @@ class UserEntity {
 
     public function getPassword(): string {
         return $this->password;
+    }
+
+    public function getCreatedAt(): ?string {
+        return $this->created_at;
+    }
+
+    public function getUpdatedAt(): ?string {
+        return $this->updated_at;
     }
 }
