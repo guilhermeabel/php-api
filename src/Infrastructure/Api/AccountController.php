@@ -10,8 +10,8 @@ use Infrastructure\Repository\UserMySQLRepository;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class AccountController extends BaseController {
-    public static function store(Request $request, Response $response, $arg): void {
+class AccountController extends Controller {
+    public static function store(Request $request, Response $response): void {
         $dbConnection = MySQLDatabase::getInstance();
         $userRepository = new UserMySQLRepository();
 

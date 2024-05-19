@@ -6,7 +6,7 @@ namespace Infrastructure\Api;
 
 use Infrastructure\Database\MySQL\MySQLDatabase;
 
-class UserController extends BaseController {
+class UserController extends Controller {
     private MySQLDatabase $database;
 
     public function __construct() {
