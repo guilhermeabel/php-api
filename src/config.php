@@ -6,15 +6,16 @@ use Infrastructure\Persistence\Database\MySQL\MySQLDatabase;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$hostname = getenv('MYSQL_DB_HOST');
-$database = getenv('MYSQL_DB_NAME');
-$username = getenv('MYSQL_DB_USER');
-$password = getenv('MYSQL_DB_PASSWORD');
+$hostname = getenv('MYSQL_HOST');
+$port = getenv('MYSQL_PORT');
+$database = getenv('MYSQL_DB');
+$username = getenv('MYSQL_USER');
+$password = getenv('MYSQL_PASSWORD');
 
 try {
     $databaseConnection = MySQLDatabase::getInstance();
     $databaseConnection->setPersistent(true);
-    $databaseConnection->connect($hostname, $database, $username, $password);
+    $databaseConnection->connect($hostname, $port, $database, $username, $password);
 } catch (Exception $e) {
     echo 'Error connecting to the database.';
 }

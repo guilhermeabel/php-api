@@ -21,8 +21,8 @@ class MySQLDatabase implements DatabaseConnectionInterface {
         return self::$instance;
     }
 
-    public function connect(string $host, string $database, string $username, string $password): bool {
-        $pdo = new \PDO("mysql:host={$host};dbname={$database}", $username, $password, [
+    public function connect(string $host, string $port, string $database, string $username, string $password): bool {
+        $pdo = new \PDO("mysql:host={$host};port={$port};dbname={$database}", $username, $password, [
             \PDO::ATTR_PERSISTENT => $this->persistent,
             \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         ]);
