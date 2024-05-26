@@ -29,6 +29,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_PORT: ${MYSQL_PORT}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
