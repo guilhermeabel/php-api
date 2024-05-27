@@ -7,9 +7,15 @@ services:
     extra_hosts:
       host.docker.internal: host-gateway
     environment:
-      - SESSION_HANDLER=redis
-      - SESSION_PATH=tcp://redis:${REDIS_PORT}?auth=${REDIS_PASSWORD}  
-      - SESSION_MAX_TIME_LIFE=86400=value
+      APP_ENV: ${APP_ENV}
+      SESSION_HANDLER: redis
+      SESSION_PATH: tcp://redis:${REDIS_PORT}?auth=${REDIS_PASSWORD}  
+      SESSION_MAX_TIME_LIFE: 86400
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
       mysql:
           condition: service_healthy
@@ -28,7 +34,8 @@ services:
     image: mysql:8.3.0
     restart: always
     environment:
-      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_DB: ${MYSQL_DB}
       MYSQL_PORT: ${MYSQL_PORT}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
@@ -50,7 +57,7 @@ services:
       - redis_data:/data
     restart: unless-stopped
     ports:
-      - "6379:${REDIS_PORT}"
+      - "${REDIS_PORT}:${REDIS_PORT}"
     environment:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]

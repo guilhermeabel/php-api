@@ -17,7 +17,15 @@ try {
     $databaseConnection->setPersistent(true);
     $databaseConnection->connect($hostname, $port, $database, $username, $password);
 } catch (Exception $e) {
-    echo 'Error connecting to the database.';
+    echo "Error connecting to the database. \n";
+
+    if (PRODUCTION) {
+        echo 'Please contact the system administrator.';
+
+        exit;
+    }
+
+    echo "\nError: " . $e->getMessage();
 }
 
 function shutdown(): void {
