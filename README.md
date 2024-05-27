@@ -10,8 +10,14 @@ This project showcases the use of PHP to create a RESTful API, organized in a cl
 
 - PHP 8.3
 - MySQL 8.0
+- Redis for caching/session
+- Docker compose
 - Clean architecture
-- MySQL database
-- Dockerized
-- RESTful API
-- XDebug
+- Xdebug + PHPFixer
+
+## Coming soon
+
+- BFF (Backend for Frontend)
+- React + TS frontend consuming BFF
+- CI/CD pipelines
+- Orders management system, leveraging Apache Kafka and more async processing techniques
