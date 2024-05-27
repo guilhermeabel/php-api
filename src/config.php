@@ -6,6 +6,8 @@ use Infrastructure\Persistence\Database\MySQL\MySQLDatabase;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+session_start();
+
 $hostname = getenv('MYSQL_HOST');
 $port = getenv('MYSQL_PORT');
 $database = getenv('MYSQL_DB');

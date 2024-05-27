@@ -34,7 +34,9 @@ RUN apt autoremove --yes
 RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql zip opcache pcntl soap bcmath
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+
+RUN pecl install xdebug igbinary redis && \
+    docker-php-ext-enable xdebug igbinary redis
 
 RUN touch /tmp/xdebug.log && chmod 777 /tmp/xdebug.log
 RUN mkdir /var/log/nginx && \
