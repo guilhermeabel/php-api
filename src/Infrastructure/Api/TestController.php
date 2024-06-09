@@ -10,7 +10,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class TestController extends Controller {
     public static function index(Request $request, Response $response) {
         // $_SESSION['user'] = 'John Doe';
-        echo $_SESSION['user'];
+        echo $_SESSION['user'] ?? 'No user';
         $id = session_id();
         echo "\n id:{$id}\n";
 

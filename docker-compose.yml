@@ -12,7 +12,7 @@ services:
       SESSION_PATH: tcp://redis:${REDIS_PORT}?auth=${REDIS_PASSWORD}  
       SESSION_MAX_TIME_LIFE: 86400
       MYSQL_HOST: ${MYSQL_HOST}
-      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_PORT: ${MYSQL_PORT}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
@@ -34,14 +34,13 @@ services:
     image: mysql:8.3.0
     restart: always
     environment:
-      MYSQL_HOST: ${MYSQL_HOST}
-      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_PORT: ${MYSQL_PORT}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
     ports:
-      - "3307:${MYSQL_PORT}"
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
     volumes:
       - ./db:/docker-entrypoint-initdb.d
       - ./my.cnf:/etc/mysql/my.cnf

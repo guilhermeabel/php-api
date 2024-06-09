@@ -8,11 +8,15 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 session_start();
 
-$hostname = getenv('MYSQL_HOST');
-$port = getenv('MYSQL_PORT');
-$database = getenv('MYSQL_DB');
-$username = getenv('MYSQL_USER');
-$password = getenv('MYSQL_PASSWORD');
+define('APP_ENV', $_ENV['APP_ENV']);
+define('ENV_DEV', 'dev');
+define('ENV_PROD', 'prod');
+
+$hostname = $_ENV['MYSQL_HOST'];
+$port = $_ENV['MYSQL_PORT'];
+$database = $_ENV['MYSQL_DATABASE'];
+$username = $_ENV['MYSQL_USER'];
+$password = $_ENV['MYSQL_PASSWORD'];
 
 try {
     $databaseConnection = MySQLDatabase::getInstance();
@@ -21,7 +25,7 @@ try {
 } catch (Exception $e) {
     echo "Error connecting to the database. \n";
 
-    if (PRODUCTION) {
+    if (APP_ENV === ENV_PROD) {
         echo 'Please contact the system administrator.';
 
         exit;
