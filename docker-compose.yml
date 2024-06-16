@@ -78,6 +78,16 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     ports:
       - "3000:3000"
+  mongodb:
+    image: mongo:4.4.0
+    restart: always
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongo", "admin", "--eval", "db.stats()"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   go-consumer-service:
     build: 
       context: ./consumer-service
