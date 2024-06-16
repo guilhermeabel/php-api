@@ -74,7 +74,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/app
-    command: sh -c "npm install && npm start"
     environment:
       CHOKIDAR_USEPOLLING: "true"
     ports:
