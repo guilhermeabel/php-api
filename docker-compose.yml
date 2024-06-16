@@ -78,5 +78,13 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     ports:
       - "3000:3000"
+  go-consumer-service:
+    build: 
+      context: ./consumer-service
+      dockerfile: Dockerfile
+    volumes:
+      - ./consumer-service:/app
+    
+
 volumes:
   redis_data:
