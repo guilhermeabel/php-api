@@ -16,10 +16,15 @@ This project is a practical application of a managed containerized environment, 
 - MySQL 8.0 database for relational storage
 - Redis for document/caching/session storage
 - Clean architecture concepts applied globally
+- Apache Kafka for message queuing
+- MongoDB for document storage
+- Grafana and Prometheus for monitoring
+- Shared authentication service
 
 ![infra](infra.png "Project Infrastructure")
 
-Features which are ready are highlighted in blue.
+Features which are present in docker compose and being developed are highlighted in blue.
+Features which are still pending development are highlighted in red.
 
 ## Challenges and Solutions
 
@@ -36,6 +41,14 @@ Features which are ready are highlighted in blue.
   - Use MongoDB for document storage and Golang services for data aggregation.
   - When enough data is collected, the Golang service will generate reports and store them in MongoDB.
   - Later retrieval of reports will be fast and efficient.
+- **How to provide visibility into the system?**
+  - Use Grafana and Prometheus for monitoring.
+- **How to provide notifications to the user?**
+  - Use Apache Kafka for message queuing.
+  - Use Golang services to consume messages and send notifications.
+- **How to provide authentication and authorization?**
+  - Use a shared authentication service for all components.
+  - Use JWT tokens for authentication.
 
 ## Future Features
 
@@ -46,3 +59,5 @@ Features which are ready are highlighted in blue.
 - Leveraging Apache Kafka for async processing capabilities
 - K8S configuration for scaling and managing the application in a production environment
 - Notification service consuming from topic to provide status updates
+- Use ELK stack for logging.
+- Use Jaeger for tracing.
