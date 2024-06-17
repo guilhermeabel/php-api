@@ -1,4 +1,4 @@
-module github.com/consumer-service
+module github.com/guilhermeabel/reports
 
 go 1.22.0
 

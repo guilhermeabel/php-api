@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"flag"
-	"fmt"
 	"log"
 	"os"
 	"time"
@@ -13,6 +12,7 @@ import (
 )
 
 const version = "1.0.0"
+const appName = "REPORTS-SERVICE"
 
 type config struct {
 	port  int
@@ -26,16 +26,16 @@ type App struct {
 }
 
 func main() {
-	println("Initializing consumer service")
+	println("Initializing " + appName)
 
 	var cfg config
 
-	flag.IntVar(&cfg.port, "port", 4000, "API server port")
+	flag.IntVar(&cfg.port, "port", 9001, "API server port")
 	flag.StringVar(&cfg.env, "env", "development", "Environment (development|staging|production)")
 	flag.StringVar(&cfg.dbURI, "db-uri", os.Getenv("MONGO_CONNECTION_URI"), "Database URI")
 	flag.Parse()
 
-	logger := log.New(log.Writer(), "CONSUMER-SERVICE: ", log.LstdFlags)
+	logger := log.New(log.Writer(), appName+": ", log.LstdFlags)
 
 	app := &App{
 		config: cfg,
@@ -56,7 +56,7 @@ func main() {
 	defer func() {
 		cancel()
 		if err := mongoClient.Disconnect(ctx); err != nil {
-			log.Fatalf("mongodb disconnect error : %v", err)
+			app.logger.Fatalf("mongodb disconnection error : %v", err)
 		}
 	}()
 
@@ -65,15 +65,14 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Connected to MongoDB!")
+	app.logger.Println("connected to MongoDB")
 
 	err = app.NewServer().ListenAndServe()
 
 	if err != nil {
-		println("Error during consumer service startup")
 		app.logger.Fatal(err)
 	}
 
-	println("Consumer service started")
+	app.logger.Printf("started on port %d", app.config.port)
 
 }
