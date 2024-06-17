@@ -99,6 +99,12 @@ services:
       - ./reports:/app
     environment:
       - MONGO_CONNECTION_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${MONGO_INITDB_HOST}:${MONGO_INITDB_PORT}/
+  go-notifications:
+    build: 
+      context: ./notifications
+      dockerfile: Dockerfile
+    volumes:
+      - ./notifications:/app
   mongodb-client:
     image: mongo-express
     restart: always
