@@ -91,12 +91,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-  go-consumer-service:
+  go-reports:
     build: 
-      context: ./consumer-service
+      context: ./reports
       dockerfile: Dockerfile
     volumes:
-      - ./consumer-service:/app
+      - ./reports:/app
     environment:
       - MONGO_CONNECTION_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${MONGO_INITDB_HOST}:${MONGO_INITDB_PORT}/
   mongodb-client:
