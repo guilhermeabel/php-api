@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace Infrastructure\Middleware;
 
+use Application\DataTransferObjects\RequestLogDTO;
+use Infrastructure\Monitoring\Log;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class LogRequestMiddleware {
     public function __invoke(Request $request, $handler) {
         $response = $handler->handle($request);
-        $requestBody = $request->getParsedBody();
-        $responseBody = (string) $response->getBody();
-
-        file_put_contents(__DIR__ . '/../../../logs/app.requests.log', sprintf(
-            "[%s] %s %s %s %s\n",
-            date('Y-m-d H:i:s'),
+        $requestLogDTO = new RequestLogDTO(
             $request->getMethod(),
             $request->getUri()->getPath(),
-            json_encode($requestBody),
-            $responseBody
-        ), FILE_APPEND);
+            $request->getUri()->getQuery(),
+            $request->getParsedBody()
+        );
+
+        (new Log())->logRequest($requestLogDTO);
 
         return $response;
     }
