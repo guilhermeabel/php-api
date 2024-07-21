@@ -14,11 +14,11 @@ class RequestLogDTO {
     protected string $query;
     protected array $body;
 
-    public function __construct(string $method, string $path, string $query, array $body) {
+    public function __construct(string $method, string $path, string $query, ?array $body) {
         $this->method = $method;
         $this->path = $path;
         $this->query = $query;
-        $this->body = $body;
+        $this->body = $body ?? [];
     }
 
     public function getMethod(): string {
