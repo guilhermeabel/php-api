@@ -79,7 +79,7 @@ services:
     environment:
       CHOKIDAR_USEPOLLING: "true"
     ports:
-      - "3000:3000"
+      - "3000:5173"
   mongodb:
     image: mongo:4.4.0
     restart: always
