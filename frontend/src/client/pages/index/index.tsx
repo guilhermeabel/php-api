@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { Section } from "./components/Section";
 import { Panel } from "../../layout/panel";
 
