@@ -1,10 +1,13 @@
-FROM oven/bun:latest
+FROM node:21-alpine
 
 WORKDIR /app
 
 COPY . .
-RUN bun install
 
-EXPOSE 3000/tcp
+RUN npm install
 
-ENTRYPOINT [ "bun", "dev" ]
+ENV PATH /app/node_modules/.bin:$PATH
+
+ENTRYPOINT ["npm"]
+
+CMD ["run", "dev"]
