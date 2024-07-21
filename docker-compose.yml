@@ -127,7 +127,6 @@ services:
       retries: 5
   zookeeper:
     image: bitnami/zookeeper:latest
-    container_name: zookeeper
     restart: unless-stopped
     ports:
       - ${ZOOKEEPER_PORT}:${ZOOKEEPER_PORT}
@@ -172,7 +171,6 @@ services:
       - go-reports
   grafana:
     image: grafana/grafana:latest
-    container_name: grafana
     restart: unless-stopped
     ports:
       - ${GRAFANA_PORT}:${GRAFANA_PORT}
