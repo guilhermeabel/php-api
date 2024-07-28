@@ -10,4 +10,4 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 ENTRYPOINT ["npm"]
 
-CMD ["run", "dev"]
+CMD ["run", "build"]

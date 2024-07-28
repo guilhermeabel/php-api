@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build --watch",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.11",
+    "@tanstack/react-query-devtools": "^5.51.11",
+    "axios": "^1.7.2",
     "flowbite-react": "^0.10.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

@@ -8,6 +8,7 @@ import {
 import { Flowbite } from 'flowbite-react'
 import App from './App'
 import { PagesContextProvider } from './core/pagesContext'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient()
 
@@ -19,6 +20,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 					<App />
 				</PagesContextProvider>
 			</Flowbite>
+
+			<ReactQueryDevtools />
 		</QueryClientProvider>
 	</React.StrictMode >,
 )

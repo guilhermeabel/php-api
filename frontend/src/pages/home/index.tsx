@@ -1,8 +1,9 @@
 import { Card } from "flowbite-react";
-// import useCreateTodo from "../../core/mutations/useCreateTodo";
+import useQueryTodo from "../../core/queries/useQueryTodo";
 
 const Homepage = () => {
-	// const mutation = useCreateTodo()
+	const { data } = useQueryTodo();
+	console.log(data);
 
 	return (<>
 		<Card href="#" className="max-w-sm mb-5">
