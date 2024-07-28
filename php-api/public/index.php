@@ -21,4 +21,5 @@ $app->add(new LogRequestMiddleware());
 $app->get('/', static fn (Request $request, Response $response) => TestController::index($request, $response));
 $app->post('/account', static fn (Request $request, Response $response) => AccountController::store($request, $response));
 
+$app->get('/api/todos', static fn (Request $request, Response $response) => TestController::todo($request, $response));
 $app->run();

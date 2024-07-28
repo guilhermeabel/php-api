@@ -1,8 +1,9 @@
 services:
   php-api-01: &php-api
-    build: ./
+    build:
+      context: ./php-api
     volumes:
-      - ./:/var/www/html
+      - ./php-api:/var/www/html
     working_dir: /var/www/html
     extra_hosts:
       host.docker.internal: host-gateway
@@ -34,7 +35,7 @@ services:
       - ${APP_PORT}:80
     restart: unless-stopped
     volumes:
-      - ./:/var/www/html
+      - ./php-api:/var/www/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php-api-01
@@ -57,8 +58,8 @@ services:
     ports:
       - "${MYSQL_PORT}:${MYSQL_PORT}"
     volumes:
-      - ./db:/docker-entrypoint-initdb.d
-      - ./my.cnf:/etc/mysql/my.cnf
+      - ./php-api/db:/docker-entrypoint-initdb.d
+      - ./php-api/db/my.cnf:/etc/mysql/my.cnf
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       interval: 10s
