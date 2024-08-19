@@ -1,0 +1,10 @@
+services:
+  go-app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - GO111MODULE=on
+      - CGO_ENABLED=0
