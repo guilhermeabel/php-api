@@ -2,6 +2,8 @@ services:
   php-api-01: &php-api
     build:
       context: ./php-api
+    networks:
+      - app-network
     volumes:
       - ./php-api:/var/www/html
     working_dir: /var/www/html
@@ -68,8 +70,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 300MB
+          cpus: '0.5'
+          memory: 512MB
   redis:
     image: redis:alpine
     volumes:
@@ -93,10 +95,10 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+    networks:
+      - app-network
     volumes:
       - ./frontend:/app
-      - /app/node_modules
     environment:
       CHOKIDAR_USEPOLLING: "true"
     ports:
@@ -127,7 +129,6 @@ services:
   go-reports:
     build: 
       context: ./reports
-      dockerfile: Dockerfile
     volumes:
       - ./reports:/app
     environment:
@@ -140,7 +141,6 @@ services:
   go-notifications:
     build: 
       context: ./notifications
-      dockerfile: Dockerfile
     volumes:
       - ./notifications:/app
     deploy:
@@ -252,3 +252,5 @@ services:
           memory: 100MB
 volumes:
   redis_data:
+networks:
+   app-network:
